@@ -1,164 +1,560 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ZYVORA | Gaming Universe</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZYVORA — Gaming Universe</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&family=Inter:wght@400;500;700&display=swap');
 
-    body {
-      background: #080810;
-      color: white;
-      font-family: Arial, sans-serif;
-    }
+:root {
+  --bg: #07070c;
+  --card: #11111b;
+  --purple: #a855f7;
+  --pink: #ec4899;
+  --text: #ffffff;
+  --muted: #9999aa;
+}
 
-    header {
-      padding: 22px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid #24243b;
-    }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-    .logo {
-      font-size: 26px;
-      font-weight: bold;
-      color: #a855f7;
-      letter-spacing: 3px;
-    }
+html {
+  scroll-behavior: smooth;
+}
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 15px;
-    }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, sans-serif;
+}
 
-    .hero {
-      min-height: 80vh;
-      padding: 60px 25px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      background:
-        radial-gradient(circle at top right, #37105c, transparent 45%),
-        linear-gradient(135deg, #080810, #111122);
-    }
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 7%;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(7,7,12,.95);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid #222230;
+}
 
-    .hero h1 {
-      font-size: 55px;
-      margin-bottom: 15px;
-    }
+.logo {
+  font-family: Orbitron, sans-serif;
+  font-size: 27px;
+  font-weight: 800;
+  color: var(--purple);
+  letter-spacing: 3px;
+}
 
-    .hero h1 span {
-      color: #a855f7;
-    }
+nav {
+  display: flex;
+  gap: 25px;
+}
 
-    .hero p {
-      color: #b8b8c9;
-      font-size: 17px;
-      max-width: 500px;
-      line-height: 1.7;
-    }
+nav a {
+  color: #ddd;
+  text-decoration: none;
+  font-size: 14px;
+}
 
-    .button {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 14px 25px;
-      background: #9333ea;
-      color: white;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: bold;
-      width: fit-content;
-    }
+nav a:hover {
+  color: var(--purple);
+}
 
-    .games {
-      padding: 35px 20px;
-    }
+.hero {
+  min-height: 580px;
+  padding: 100px 8%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background:
+    linear-gradient(90deg, #080810 5%, rgba(8,8,16,.92) 42%, rgba(8,8,16,.3)),
+    url('https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=1800&q=90');
+  background-size: cover;
+  background-position: center;
+}
 
-    .games h2 {
-      margin-bottom: 20px;
-      color: #c084fc;
-    }
+.badge {
+  color: #c084fc;
+  letter-spacing: 4px;
+  font-size: 12px;
+  margin-bottom: 20px;
+}
 
-    .card {
-      background: #141420;
-      border: 1px solid #292940;
-      border-radius: 12px;
-      padding: 22px;
-      margin-bottom: 15px;
-    }
+.hero h1 {
+  font-family: Orbitron, sans-serif;
+  font-size: clamp(40px, 8vw, 90px);
+  line-height: 1.1;
+  max-width: 900px;
+}
 
-    .card h3 {
-      margin-bottom: 10px;
-    }
+.hero h1 span {
+  color: var(--purple);
+  text-shadow: 0 0 35px #a855f766;
+}
 
-    .card p {
-      color: #aaaabb;
-      line-height: 1.6;
-    }
+.hero p {
+  color: #b7b7c8;
+  max-width: 520px;
+  line-height: 1.8;
+  margin-top: 20px;
+}
 
-    footer {
-      padding: 25px;
-      text-align: center;
-      color: #77778b;
-      border-top: 1px solid #24243b;
-    }
-  </style>
+.btn {
+  display: inline-block;
+  background: linear-gradient(135deg, #9333ea, #c026d3);
+  color: white;
+  text-decoration: none;
+  padding: 15px 25px;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-top: 28px;
+  width: fit-content;
+  transition: .3s;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px #9333ea66;
+}
+
+.stats {
+  display: flex;
+  gap: 45px;
+  margin-top: 55px;
+  flex-wrap: wrap;
+}
+
+.stats h2 {
+  color: #c084fc;
+  font-family: Orbitron, sans-serif;
+}
+
+.stats p {
+  font-size: 12px;
+  color: #999;
+  margin: 0;
+}
+
+section.content {
+  padding: 65px 7%;
+}
+
+.section-title {
+  font-family: Orbitron, sans-serif;
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.section-sub {
+  color: var(--muted);
+  margin-bottom: 28px;
+}
+
+.search-box {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.search-box input {
+  width: 100%;
+  padding: 15px;
+  background: #14141f;
+  color: white;
+  border: 1px solid #29293b;
+  border-radius: 10px;
+  outline: none;
+}
+
+.search-box input:focus {
+  border-color: var(--purple);
+}
+
+.categories {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.category {
+  background: #151520;
+  border: 1px solid #29293b;
+  padding: 10px 17px;
+  border-radius: 30px;
+  color: white;
+  cursor: pointer;
+  transition: .2s;
+}
+
+.category:hover,
+.category.active {
+  background: #9333ea;
+  border-color: #9333ea;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 20px;
+}
+
+.game-card {
+  background: var(--card);
+  border: 1px solid #242435;
+  border-radius: 14px;
+  overflow: hidden;
+  transition: .3s;
+}
+
+.game-card:hover {
+  transform: translateY(-6px);
+  border-color: #9333ea;
+  box-shadow: 0 10px 30px #9333ea22;
+}
+
+.game-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.game-info {
+  padding: 18px;
+}
+
+.game-info h3 {
+  margin-bottom: 8px;
+}
+
+.game-info p {
+  color: #9999aa;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.tag {
+  display: inline-block;
+  color: #c084fc;
+  background: #9333ea18;
+  border: 1px solid #9333ea55;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  margin-top: 12px;
+}
+
+.no-results {
+  display: none;
+  color: #999;
+  padding: 30px;
+  text-align: center;
+}
+
+.ai-box {
+  background:
+    radial-gradient(circle at top right, #51158a66, transparent 50%),
+    #11111b;
+  border: 1px solid #593078;
+  border-radius: 20px;
+  padding: 35px;
+}
+
+.ai-box h2 {
+  font-family: Orbitron, sans-serif;
+  color: #c084fc;
+  margin-bottom: 15px;
+}
+
+.ai-box p {
+  color: #aaa;
+  line-height: 1.7;
+}
+
+.ai-box input {
+  width: 100%;
+  padding: 15px;
+  margin-top: 20px;
+  background: #080810;
+  border: 1px solid #333;
+  border-radius: 8px;
+  color: white;
+}
+
+.ai-box button {
+  padding: 13px 20px;
+  background: #9333ea;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  margin-top: 12px;
+  cursor: pointer;
+}
+
+#aiResponse {
+  margin-top: 20px;
+  color: white;
+  line-height: 1.7;
+}
+
+footer {
+  text-align: center;
+  padding: 35px 20px;
+  color: #777;
+  border-top: 1px solid #222;
+}
+
+footer span {
+  color: #a855f7;
+}
+
+@media(max-width:650px) {
+  header {
+    padding: 16px 5%;
+  }
+
+  .logo {
+    font-size: 21px;
+  }
+
+  nav {
+    gap: 12px;
+  }
+
+  nav a {
+    font-size: 12px;
+  }
+
+  .hero {
+    min-height: 500px;
+    padding: 75px 6%;
+  }
+
+  .hero h1 {
+    font-size: 46px;
+  }
+
+  section.content {
+    padding: 45px 5%;
+  }
+
+  .stats {
+    gap: 25px;
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <div class="logo">ZYVORA</div>
+<header>
+  <div class="logo">ZYVORA</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#games">Games</a>
+    <a href="#ai">AI</a>
+  </nav>
+</header>
 
-    <nav>
-      <a href="#home">Home</a>
-      <a href="#games">Games</a>
-    </nav>
-  </header>
+<section class="hero" id="home">
+  <div class="badge">THE NEXT GENERATION OF GAMING</div>
 
-  <section class="hero" id="home">
-    <h1>ENTER THE<br><span>GAMEVERSE</span></h1>
+  <h1>ENTER THE<br><span>GAMEVERSE.</span></h1>
 
-    <p>
-      Discover amazing games, explore new worlds,
-      and experience the ultimate gaming universe.
-      Your next adventure starts here.
-    </p>
+  <p>
+    Discover legendary games, explore unknown worlds,
+    and find your next unforgettable adventure.
+    Welcome to ZYVORA.
+  </p>
 
-    <a href="#games" class="button">EXPLORE GAMES</a>
-  </section>
+  <a href="#games" class="btn">EXPLORE GAMES →</a>
 
-  <section class="games" id="games">
-    <h2>🎮 Featured Games</h2>
+  <div class="stats">
+    <div>
+      <h2>∞</h2>
+      <p>Gaming Possibilities</p>
+    </div>
+    <div>
+      <h2>10+</h2>
+      <p>Featured Games</p>
+    </div>
+    <div>
+      <h2>01</h2>
+      <p>Your Universe</p>
+    </div>
+  </div>
+</section>
 
-    <div class="card">
-      <h3>Grand Theft Auto V</h3>
-      <p>Explore a massive open world full of action,
-      adventures and unforgettable experiences.</p>
+<section class="content" id="games">
+  <h2 class="section-title">DISCOVER GAMES</h2>
+  <p class="section-sub">Find your next adventure.</p>
+
+  <div class="search-box">
+    <input id="search" type="search" placeholder="🔎 Search games..." oninput="filterGames()">
+  </div>
+
+  <div class="categories">
+    <button class="category active" onclick="setCategory('All',this)">All</button>
+    <button class="category" onclick="setCategory('Action',this)">Action</button>
+    <button class="category" onclick="setCategory('Adventure',this)">Adventure</button>
+    <button class="category" onclick="setCategory('Racing',this)">Racing</button>
+    <button class="category" onclick="setCategory('Survival',this)">Survival</button>
+  </div>
+
+  <div class="grid" id="gameGrid">
+
+    <div class="game-card" data-category="Action" data-name="Grand Theft Auto V">
+      <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?auto=format&fit=crop&w=700&q=80">
+      <div class="game-info">
+        <h3>Grand Theft Auto V</h3>
+        <p>Explore an expansive open-world experience.</p>
+        <span class="tag">ACTION</span>
+      </div>
     </div>
 
-    <div class="card">
-      <h3>Minecraft</h3>
-      <p>Build, explore and create your own incredible world.</p>
+    <div class="game-card" data-category="Adventure" data-name="Minecraft">
+      <img src="https://images.unsplash.com/photo-1607513746994-51f730a7f1a7?auto=format&fit=crop&w=700&q=80">
+      <div class="game-info">
+        <h3>Minecraft</h3>
+        <p>Build, create and discover your own world.</p>
+        <span class="tag">ADVENTURE</span>
+      </div>
     </div>
 
-    <div class="card">
-      <h3>Free Fire</h3>
-      <p>Experience an exciting battle royale adventure.</p>
+    <div class="game-card" data-category="Action" data-name="Free Fire">
+      <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=700&q=80">
+      <div class="game-info">
+        <h3>Free Fire</h3>
+        <p>Jump into a fast-paced battle royale game.</p>
+        <span class="tag">ACTION</span>
+      </div>
     </div>
-  </section>
 
-  <footer>
-    © 2026 ZYVORA | Gaming Universe
-  </footer>
+    <div class="game-card" data-category="Racing" data-name="Forza Horizon">
+      <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=700&q=80">
+      <div class="game-info">
+        <h3>Forza Horizon</h3>
+        <p>Drive and explore beautiful racing environments.</p>
+        <span class="tag">RACING</span>
+      </div>
+    </div>
+
+    <div class="game-card" data-category="Survival" data-name="Rust">
+      <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=700&q=80">
+      <div class="game-info">
+        <h3>Rust</h3>
+        <p>Explore, survive and build in a challenging world.</p>
+        <span class="tag">SURVIVAL</span>
+      </div>
+    </div>
+
+    <div class="game-card" data-category="Adventure" data-name="Red Dead Redemption 2">
+      <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=700&q=80">
+      <div class="game-info">
+        <h3>Red Dead Redemption 2</h3>
+        <p>Discover an immersive open-world adventure.</p>
+        <span class="tag">ADVENTURE</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="no-results" id="noResults">No games found.</div>
+</section>
+
+<section class="content" id="ai">
+  <div class="ai-box">
+    <h2>🤖 ZYVORA AI</h2>
+    <p>Your gaming companion. Find games based on what you love.</p>
+
+    <input id="aiInput" placeholder="Example: I like racing games...">
+
+    <button onclick="askAI()">Find My Game</button>
+
+    <div id="aiResponse"></div>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 <span>ZYVORA</span> — ENTER YOUR UNIVERSE.</p>
+</footer>
+
+<script>
+let currentCategory = "All";
+
+function setCategory(category, button) {
+  currentCategory = category;
+
+  document.querySelectorAll(".category").forEach(btn => {
+    btn.classList.remove("active");
+  });
+
+  button.classList.add("active");
+  filterGames();
+}
+
+function filterGames() {
+  const search = document.getElementById("search").value.toLowerCase();
+  const cards = document.querySelectorAll(".game-card");
+  let count = 0;
+
+  cards.forEach(card => {
+    const name = card.dataset.name.toLowerCase();
+    const category = card.dataset.category;
+
+    const matchesSearch = name.includes(search);
+    const matchesCategory =
+      currentCategory === "All" || category === currentCategory;
+
+    if (matchesSearch && matchesCategory) {
+      card.style.display = "block";
+      count++;
+    } else {
+      card.style.display = "none";
+    }
+  });
+
+  document.getElementById("noResults").style.display =
+    count === 0 ? "block" : "none";
+}
+
+function askAI() {
+  const input = document.getElementById("aiInput").value.toLowerCase();
+  const response = document.getElementById("aiResponse");
+
+  if (!input.trim()) {
+    response.innerHTML = "Please tell me what type of games you like.";
+    return;
+  }
+
+  let recommendations = [];
+
+  if (input.includes("race") || input.includes("car") || input.includes("drive")) {
+    recommendations = ["Forza Horizon", "Need for Speed", "CarX Drift Racing"];
+  } else if (input.includes("survival") || input.includes("build")) {
+    recommendations = ["Minecraft", "Rust", "The Forest"];
+  } else if (input.includes("action") || input.includes("fight")) {
+    recommendations = ["Free Fire", "GTA V", "Call of Duty"];
+  } else if (input.includes("adventure") || input.includes("story")) {
+    recommendations = ["Red Dead Redemption 2", "Minecraft", "GTA V"];
+  } else {
+    recommendations = ["GTA V", "Minecraft", "Forza Horizon", "Free Fire"];
+  }
+
+  response.innerHTML =
+    "<h3>✨ Recommended for you</h3><br>" +
+    recommendations.map(game => "🎮 " + game).join("<br>");
+}
+</script>
 
 </body>
-  </html>
+</html>
